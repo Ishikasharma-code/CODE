@@ -1,0 +1,27 @@
+
+class Solution {
+
+    public int peakElement(int[] arr) {
+        // code here
+         int low = 0;
+        int high = arr.length - 1;
+        
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            
+            int left = (mid > 0) ? arr[mid - 1] : Integer.MIN_VALUE;
+            int right = (mid < arr.length - 1) ? arr[mid + 1] : Integer.MIN_VALUE;
+            
+            if (arr[mid] > left && arr[mid] > right) {
+                return mid; 
+            } else if (arr[mid] < right) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        
+        return -1; 
+    }
+    }
+
