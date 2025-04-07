@@ -1,0 +1,15 @@
+def find_single_occurrence(arr):
+    freq = {}
+    for num in arr:
+        freq[num] = freq.get(num, 0) + 1
+    
+    for num, count in freq.items():
+        if count == 1:
+            print(f"Number that occurs only once: {num}")
+            return
+    
+    print("No number occurs only once.")
+
+
+arr = list(map(int, input("Enter array elements separated by space: ").split()))
+find_single_occurrence(arr)
