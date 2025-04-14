@@ -1,0 +1,23 @@
+import java.util.LinkedList;
+
+public class Main{
+    public static void main(String[] args){
+        // Create a linked list
+        LinkedList linkedList = new LinkedList();
+        
+        // Adding elements to a Linkedlist
+        linkedList.add(10);
+        linkedList.add(20);
+        linkedList.add(30);
+        linkedList.add(40);
+        linkedList.add(50);
+
+        // Convert the linked list to an array
+        Integer[] array = linkedList.toArray(new Integer[linkedList.size()]);
+
+        // Print the array
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
