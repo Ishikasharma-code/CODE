@@ -1,0 +1,30 @@
+import java.util.Calendar;
+
+public class Main{
+  public static void main(String[] args){
+    Calendar date1 = Calendar.getInstance();
+    Calendar date2 = Calendar.getInstance();
+
+    // Set the date for first calendar
+    date1.set(Calendar.YEAR, 2022);
+    date1.set(Calendar.MONTH, Calendar.JANUARY);
+    date1.set(Calendar.DATE, 1);
+
+    // Set the date for second calendar
+    date2.set(Calendar.YEAR, 2022);
+    date2.set(Calendar.MONTH, Calendar.FEBRUARY);
+    date2.set(Calendar.DATE, 28);
+
+    // Printing both of the dates before addition
+    System.out.println("Value for Date1 before addition is : " + date1.getTime());
+    System.out.println("Value for Date2 before addition is : " + date2.getTime());
+    
+    // Add the dates to both of the above dates
+    date1.add(Calendar.DATE, 28);
+    date2.add(Calendar.DATE, 2);
+
+    // Printing both of the dates
+    System.out.println("Value for Date1 after addition is : " + date1.getTime());
+    System.out.println("Value for Date2 after addition is : " + date2.getTime());
+  }
+}
