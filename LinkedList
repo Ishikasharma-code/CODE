@@ -1,0 +1,25 @@
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        // create a new LinkedList
+        LinkedList list = new LinkedList<>();
+
+        // add some elements to the list
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        // print the contents of the list
+        System.out.println("Initial list: " + list);
+
+        // remove the second element from the list
+        list.remove(1);
+
+        // add a new element at the end of the list
+        list.add(4);
+
+        // print the contents of the list again
+        System.out.println("Modified list: " + list);
+    }
+}
