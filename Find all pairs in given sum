@@ -1,0 +1,27 @@
+class Solution {
+    public pair[] allPairs(int target, int arr1[], int arr2[]) {
+        
+        // Your code goes here
+        Set<Integer> setB = new HashSet<>();
+        List<int[]> result = new ArrayList<>();
+
+       
+        for (int num : arr2) {
+            setB.add(num);
+        }
+
+        
+        for (int num : arr1) {
+            int complement = target - num;
+            if (setB.contains(complement)) {
+                result.add(new int[]{num, complement});
+            }
+        }
+
+        
+        result.sort(Comparator.comparingInt(pair -> pair[0]));
+
+        return result;
+        
+    }
+    }
