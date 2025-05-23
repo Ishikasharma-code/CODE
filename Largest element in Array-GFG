@@ -1,0 +1,13 @@
+class Solution {
+    public static int largest(int[] arr) {
+        // code here
+        int n=arr.length;
+        int max = arr[0]; // Assume first element is the largest
+         for (int i = 1; i < n; i++) {
+              if (arr[i] > max) {
+              max = arr[i]; // Update max if a larger element is found
+                }
+                 }
+               return max;
+    }
+}
