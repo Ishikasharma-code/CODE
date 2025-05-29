@@ -1,0 +1,38 @@
+import java.util.Arrays;
+
+public class AggressiveCows {
+    // Function to check if cows can be placed with at least 'distance' apart
+    public static boolean canPlaceCows(int[] stalls, int k, int distance) {
+        int count = 1, lastPlaced = stalls[0];
+
+        for (int i = 1; i < stalls.length; i++) {
+            if (stalls[i] - lastPlaced >= distance) {
+                count++;
+                lastPlaced = stalls[i];
+                if (count == k) return true;
+            }
+        }
+        return false;
+    }
+
+    // Function to find the largest minimum distance
+    public static int findMaxMinDistance(int[] stalls, int k) {
+        Arrays.sort(stalls); // Sort the stall positions
+
+        int low = 1, high = stalls[stalls.length - 1] - stalls[0], result = 0;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (canPlaceCows(stalls, k, mid)) {
+                result = mid; // Update result and try for a larger distance
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return result;
+    }
+
+ 
+}
