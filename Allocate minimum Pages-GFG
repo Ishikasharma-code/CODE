@@ -1,0 +1,43 @@
+import java.util.Arrays;
+
+public class AllocateBooks {
+    // Function to check if books can be allocated with max pages limit
+    private static boolean isPossible(int[] arr, int k, int maxPages) {
+        int students = 1, pagesSum = 0;
+
+        for (int pages : arr) {
+            if (pages > maxPages) return false; // If a single book exceeds maxPages, allocation is impossible
+
+            if (pagesSum + pages > maxPages) {
+                students++; // Allocate to a new student
+                pagesSum = pages;
+                if (students > k) return false; // More students than allowed
+            } else {
+                pagesSum += pages;
+            }
+        }
+        return true;
+    }
+
+    // Function to find the minimum possible maximum pages assigned
+    public static int findPages(int[] arr, int k) {
+        if (arr.length < k) return -1; // Not enough books for students
+
+        int low = Arrays.stream(arr).max().getAsInt(); // Minimum possible max pages
+        int high = Arrays.stream(arr).sum(); // Maximum possible max pages
+        int result = -1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (isPossible(arr, k, mid)) {
+                result = mid; // Update result and try for a smaller max pages
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return result;
+    }
+
+   }
