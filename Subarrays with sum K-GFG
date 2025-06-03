@@ -1,0 +1,17 @@
+class Solution {
+    public int countSubarrays(int arr[], int k) {
+        // code here
+        Map<Integer, Integer> prefixSumMap=new HashMap<>();
+        int count=0,prefixSum=0;
+        prefixSumMap.put(0,1);
+        for(int num:arr){
+            prefixSum+=num;
+            if(prefixSumMap.containsKey(prefixSum-k)){
+                count+=prefixSumMap.get(prefixSum-k);
+            }
+            prefixSumMap.put(prefixSum, prefixSumMap.getOrDefault(prefixSum,0)+1);
+        }
+        return count;
+        
+    }
+}
