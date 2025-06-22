@@ -1,0 +1,23 @@
+class Solution {
+    public static Node getMeetingPoint(Node head){
+        Node slow=head,fast=head;
+        while(fast!=null && fast.next !=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast) return slow;
+        }
+        return null;
+    }
+    public static Node findFirstNode(Node head) {
+        // code here
+        Node meet=getMeetingPoint(head);
+        if(meet==null) return null;
+        Node start=head;
+        while(start!=meet){
+            start=start.next;
+            meet=meet.next;
+        }
+        return start;
+        
+    }
+}
